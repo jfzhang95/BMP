@@ -3,7 +3,7 @@ Code repository for the paper:
 **Body Meshes as Points**  
 [Jianfeng Zhang](https://jeff95.me/), [Dongdong Yu](https://miracle-fmh.github.io/), [Jun Hao Liew](https://scholar.google.com.sg/citations?user=8gm-CYYAAAAJ&hl=en/), [Xuecheng Nie](https://niexc.github.io/), [Jiashi Feng](https://sites.google.com/site/jshfeng/)  
 CVPR 2021  
-[[paper (coming soon)](https://jeff95.me/)] [[project page (coming soon)](https://jeff95.me/)]  
+[[paper](https://arxiv.org/pdf/2105.02467.pdf)] [[project page (coming soon)](https://jeff95.me/)]  
 
 ## Introduction
 **Overview of the proposed method:**  
