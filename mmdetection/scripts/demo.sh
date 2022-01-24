@@ -1,0 +1,1 @@
+python3 tools/demo.py --config=configs/bmp/finetune.py --image_folder=demo_images/ --output_folder=results/ --ckpt ./work_dirs/finetune/latest.pth

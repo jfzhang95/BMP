@@ -1,0 +1,1 @@
+python3 tools/eval_all.py configs/bmp/finetune.py --ckpt ./work_dirs/finetune/latest.pth

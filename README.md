@@ -9,6 +9,68 @@ CVPR 2021
 **Overview of the proposed method:**  
 ![alt text](assets/teaser.png)
 
+## Installation instructions
+This codebase was adopted from early version of mmdetection, mmcv and multiperson. Users of this repo are highly recommended to
+read the readme of [mmcv](./mmcv/README.rst) and [mmdetection](./mmdetection/README.md)  and [multiperson](https://github.com/JiangWenPL/multiperson/blob/master/README.md) before using this code.
+
+To install relevant envs:
+```bash
+conda env create -f environment.yml
+cd mmcv
+python3 setup.py install
+cd ../mmdetection
+./compile.sh
+python setup.py develop
+cd ../neural_renderer
+python3 setup.py install
+cd ../sdf
+python3 setup.py install
+```
+
+## Prepare datasets
+Please follow [multiperson](https://github.com/JiangWenPL/multiperson/blob/master/DATASETS.md) for the preparation of the dataset files.
+
+## Run training code
+Please make sure you have prepared all datasets before running our training script.
+The training of our model would take two phases, pretrain -> fine tuning. We prepared two configuration files under `mmdetection/configs/bmp/`.
+To train our model from scratch:
+
+```bash
+cd mmdetection
+# Phase 1: Pretraining
+python3 tools/train.py configs/bmp/pretrain.py --create_dummy
+while true:
+do
+    python3 tools/train.py configs/bmp/pretrain.py
+done
+# We could move to next phase after training for 200 epoches
+
+# Phase 2: Fine-tuning
+python3 tools/train.py configs/bmp/finetune.py --load_pretrain ./work_dirs/pretrain/latest.pth
+while true:
+do
+    python3 tools/train.py configs/bmp/finetune.py 
+done
+# It could be done after 50 epoches of training
+```
+
+## Run evaluation code
+You could use the trained model to evaluate on Panoptic, MuPoTS-3D, Human3.6M and 3DPW.
+
+Example usage:
+```
+cd mmdetection
+bash scripts/eval_all.sh
+```
+
+## Run demo code
+You could use the trained model for image inference by running:
+
+```
+cd mmdetection
+bash scripts/demo.sh
+```
+
 **Qualitative results:**  
 ![alt text](assets/vis_bmp.png)
 

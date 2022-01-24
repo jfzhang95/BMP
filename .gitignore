@@ -3,12 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-.DS_Store
-
 # C extensions
 *.so
 
-.history/
+.history
+.idea
+.DS_Store
 
 # Distribution / packaging
 .Python
